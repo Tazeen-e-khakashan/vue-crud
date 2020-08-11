@@ -4,12 +4,13 @@
 }
 
 .users {
-  width: 300px;
-  border: 1px solid black;
-  display: flex;
+  width: 50%;
+  /* border: 1px solid black;
+  display: flex; */
   flex-direction: column;
   padding: 20px;
-  background: #FFEEE4;
+  /* background: #e9dfdf; */
+  margin: 10%;
 }
 
 .add-search-input {
