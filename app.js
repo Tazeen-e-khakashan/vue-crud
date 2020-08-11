@@ -7,17 +7,27 @@ new Vue({
       submitting: false,
       newUser: '',
       updateUser: '',
-      editUser: ''
     }
   },
   methods: {
-    showEditInput(user){
-      this.$set(user, 'isEdit', true)
+    showEditInput(users){
+      this.$set(users, 'isEdit', true)
 
   },
-  // saveTask(user){
-  //    user.isEdit = false
-  //  },
+  saveTask(users){
+    users.isEdit = false
+      this.submitting = true;
+      axios.put('https://jsonplaceholder.typicode.com/users', {
+        name: this.updateUser
+      })
+        .then((response) => {
+          const data = response.data;
+          this.users.put(data);
+          this.updateUser = '';
+          this.submitting = false;
+        });
+
+  },
     fetchUsers() {
       this.loading = true;
       this.users = [];
@@ -40,7 +50,7 @@ new Vue({
           this.newUser = '';
           this.submitting = false;
         });
-    }
+    },
     // editUser() {
     //   this.submitting = true;
     //   axios.put('https://jsonplaceholder.typicode.com/users', {

@@ -22,12 +22,6 @@
           @keyup.enter="addUser"
           placeholder="Add Users"
         >
-        <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  ><input
-          class="add-search-input"
-          type="text"
-          v-model="newUser"
-
-        ></button> -->
         <div>
           <p v-if="submitting">Submitting...</p>
           <p v-if="loading">Loading...</p>
@@ -44,10 +38,10 @@
                 <td class="border border-gray-400 px-4 py-2"> {{ user.id }}</td>
                 <td class="border px-4 py-2">
                   <span v-if="!user.isEdit">{{user.name}}</span>
-                  <!-- <span v-if="user.isEdit"><input type="text" placeholder="user name" v-model="newUser"
-                    @keyup.enter="addUser"></span> -->
+                   <span v-if="user.isEdit"><input type="text" placeholder="user name" v-model="updateUser" @keyup.enter="saveTask(users)"
+                   ></span>
               </td>
-              <!-- <td><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="showEditInput(user)" @on-enter="saveTask(user)">Edit</button></td> -->
+               <td><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="showEditInput(user)" @keyup.enter="saveTask(users)">Edit</button></td>
 
 
               </tr>
